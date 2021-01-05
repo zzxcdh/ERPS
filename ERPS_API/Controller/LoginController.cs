@@ -34,7 +34,7 @@ namespace ERPS_API.Controller
 
                 User userInfo = JsonConvert.DeserializeObject<User>(str);
 
-                userInfo.password = ValidCodeUtils.EncryptPassword(userInfo.password);
+                userInfo.password = ValidCodeUtils.EncryptPassword(userInfo.password);  
 
                 if (!ValidateUser(userInfo.uid, userInfo.password))
                 {
