@@ -38,7 +38,7 @@ namespace ERPS_API.Controller
 
                 if (!ValidateUser(userInfo.uid, userInfo.password))
                 {
-                    result = new UserDataPackage<User> { code = 20001 };
+                    result = new UserDataPackage<User> { code = 20001 };  
                     return new PageResult(result, Request);
                 }
 
