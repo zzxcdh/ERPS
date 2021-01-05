@@ -94,7 +94,7 @@ namespace ERPS_API.Controller
             {
                 return NotFound();
             }
-
+            //
             listCus = listCus.OrderByDescending(c => c.CreateDate);
             var oData = new { total = listCus.Count(), rows = listCus.Skip(pagesize * (currentPage - 1)).Take(pagesize).ToList() };
             return Ok(oData);
