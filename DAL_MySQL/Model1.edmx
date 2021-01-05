@@ -1,0 +1,2768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmcModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="inwarrecord">
+          <Key>
+            <PropertyRef Name="InWarNo" />
+          </Key>
+          <Property Name="InWarNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" />
+          <Property Name="InWarDate" Type="datetime" Precision="0" />
+          <Property Name="Contact" Type="varchar" MaxLength="30" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="UpdateName" Type="varchar" MaxLength="20" />
+          <Property Name="WHName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="inwarrecorddtl">
+          <Key>
+            <PropertyRef Name="InWarNo" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="InWarNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="PurPrice" Type="float" />
+          <Property Name="Num" Type="float" />
+        </EntityType>
+        <EntityType Name="mcurrency">
+          <Key>
+            <PropertyRef Name="CurrencyID" />
+          </Key>
+          <Property Name="CurrencyID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CurrencyName" Type="varchar" MaxLength="30" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="mcustomer">
+          <Key>
+            <PropertyRef Name="CusID" />
+          </Key>
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="Contact" Type="varchar" MaxLength="30" />
+          <Property Name="Salesman" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="DelRemark" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="BusLic" Type="varchar" MaxLength="100" />
+          <Property Name="BankName1" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo1" Type="varchar" MaxLength="50" />
+          <Property Name="BankName2" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo2" Type="varchar" MaxLength="50" />
+          <Property Name="BankName3" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo3" Type="varchar" MaxLength="50" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mcustomerprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="CusItmName" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="mproduct">
+          <Key>
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="PurPrice" Type="float" />
+          <Property Name="SalPrice" Type="float" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="MgrInfo" Type="varchar" MaxLength="100" />
+          <Property Name="IO_Type" Type="varchar" MaxLength="2" />
+          <Property Name="PdtBarcode" Type="varchar" MaxLength="30" />
+          <Property Name="Manufacturer" Type="varchar" MaxLength="30" />
+          <Property Name="Brand" Type="varchar" MaxLength="20" />
+          <Property Name="PdtModel" Type="varchar" MaxLength="30" />
+          <Property Name="CostPrice" Type="float" />
+          <Property Name="CurrencyID" Type="varchar" MaxLength="20" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mproductatt">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AttFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="mproducttype">
+          <Key>
+            <PropertyRef Name="PdtTypeID" />
+          </Key>
+          <Property Name="PdtTypeID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="msupplier">
+          <Key>
+            <PropertyRef Name="SupID" />
+          </Key>
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="Contact" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Level" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="BusLic" Type="varchar" MaxLength="100" />
+          <Property Name="BankName1" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo1" Type="varchar" MaxLength="50" />
+          <Property Name="BankName2" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo2" Type="varchar" MaxLength="50" />
+          <Property Name="BankName3" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccNo3" Type="varchar" MaxLength="50" />
+          <Property Name="CreateID" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="msupplierprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="SupItmName" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="mwarehouse">
+          <Key>
+            <PropertyRef Name="WHID" />
+          </Key>
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WHName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="Contacts" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="WHType" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="outwarrecord">
+          <Key>
+            <PropertyRef Name="OutWarNo" />
+          </Key>
+          <Property Name="OutWarNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" />
+          <Property Name="DeliveryDate" Type="datetime" Precision="0" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateName" Type="varchar" MaxLength="20" />
+          <Property Name="WHName" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="outwarrecorddtl">
+          <Key>
+            <PropertyRef Name="OutWarNo" />
+            <PropertyRef Name="PdtId" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="OutWarNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="20" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="MgrInfo" Type="varchar" MaxLength="50" />
+          <Property Name="Spec" Type="varchar" MaxLength="30" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="OrderNum" Type="float" />
+          <Property Name="Num" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sfunction">
+          <Key>
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="FuncID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FuncName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FuncType" Type="varchar" MaxLength="30" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="srole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="srolefunction">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="RoleID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FuncID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Position" Type="varchar" MaxLength="20" />
+          <Property Name="Department" Type="varchar" MaxLength="30" />
+          <Property Name="RoleID" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="StaffId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="suserrole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tpurorder">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+          </Key>
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="TotalNum" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="AppointDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tpurorderatt">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AttFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tpurorderdtl">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OrderNum" Type="float" />
+          <Property Name="DelNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="UnitPrice" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="DelDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tsaleforcast">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tsaleforcastatt">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AttFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tsaleforcastdtl">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="30" />
+          <Property Name="FocaMonth" Type="varchar" MaxLength="10" />
+          <Property Name="FocaNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="Remark1" Type="varchar" MaxLength="100" />
+          <Property Name="Remark2" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tsaleorder">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="TotalNumber" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="AppointDate" Type="datetime" Precision="0" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tsaleorderatt">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AttFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tsaleorderdtl">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="30" />
+          <Property Name="FocaMonth" Type="varchar" MaxLength="10" />
+          <Property Name="OrderNum" Type="float" />
+          <Property Name="DelNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="OrderPrice" Type="float" />
+          <Property Name="DelDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="Remark1" Type="varchar" MaxLength="100" />
+          <Property Name="Remark2" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="twhcheckrecorddtl">
+          <Key>
+            <PropertyRef Name="ChkNO" />
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="ChkNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="InvNum" Type="float" Nullable="false" />
+          <Property Name="RealNum" Type="float" Nullable="false" />
+          <Property Name="DifNum" Type="float" Nullable="false" />
+          <Property Name="AdjStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="twhcheckrecords">
+          <Key>
+            <PropertyRef Name="ChkNO" />
+          </Key>
+          <Property Name="ChkNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChkDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AreaID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PosiID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ChkStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="twhinventory">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AreaID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PosiID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="InvNum" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.twhinventory_his”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="twhinventory_his">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="UpdateDate" />
+          </Key>
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AreaID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PosiID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="InvNum" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="DATE" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="twhstockrecords">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CreateDate" />
+          </Key>
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AreaID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PosiID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="No" Type="varchar" MaxLength="50" />
+          <Property Name="Num" Type="float" />
+          <Property Name="RefWHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RefAreaID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RefPosiID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OpeType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" />
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" />
+          <Property Name="RefSeqNo" Type="int" />
+          <Property Name="State" Type="varchar" MaxLength="10" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_customerprodprice”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_customerprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="Model" />
+            
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="PurPrice" Type="float" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="CusItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="CusItmName" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_purorder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_purorder">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            
+            
+            
+          </Key>
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="TotalNum" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="AppointDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_purorderdtl”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_purorderdtl">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="SeqNo" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="SupName" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="DelDate" />
+            <PropertyRef Name="UpdateDate" />
+          </Key>
+          <Property Name="PurOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="OrderNum" Type="float" />
+          <Property Name="DelNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="UnitPrice" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="DelDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_saleforcast”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_saleforcast">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            
+            
+          </Key>
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_saleforcastdtl”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_saleforcastdtl">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="SeqNo" />
+            
+            
+            
+          </Key>
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" />
+          <Property Name="MgrInfo" Type="varchar" MaxLength="100" />
+          <Property Name="CusItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="CusItmName" Type="varchar" MaxLength="200" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="FocaMonth" Type="varchar" MaxLength="10" />
+          <Property Name="FocaNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="DtlState" Type="varchar" MaxLength="5" />
+          <Property Name="Remark1" Type="varchar" MaxLength="100" />
+          <Property Name="Remark2" Type="varchar" MaxLength="100" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" />
+          <Property Name="DtlCreateID" Type="varchar" MaxLength="20" />
+          <Property Name="DtlCreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="DtlUpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="DtlUpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_saleorder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_saleorder">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            
+            
+          </Key>
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="TotalNumber" Type="float" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="AppointDate" Type="datetime" Precision="0" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_saleorderdtl”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_saleorderdtl">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="SeqNo" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="SaleOrderNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeqNo" Type="int" Nullable="false" />
+          <Property Name="SaleFocaNO" Type="varchar" MaxLength="50" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="CusID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusName" Type="varchar" MaxLength="50" />
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" />
+          <Property Name="MgrInfo" Type="varchar" MaxLength="100" />
+          <Property Name="CusItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="CusItmName" Type="varchar" MaxLength="200" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="FocaMonth" Type="varchar" MaxLength="10" />
+          <Property Name="DelDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="FocaNum" Type="float" />
+          <Property Name="LftNum" Type="float" />
+          <Property Name="OrderNum" Type="float" />
+          <Property Name="DelNum" Type="float" />
+          <Property Name="OrderPrice" Type="float" />
+          <Property Name="State" Type="varchar" MaxLength="5" />
+          <Property Name="DtlState" Type="varchar" MaxLength="5" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="Remark1" Type="varchar" MaxLength="100" />
+          <Property Name="Remark2" Type="varchar" MaxLength="100" />
+          <Property Name="CreDate" Type="datetime" Precision="0" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" />
+          <Property Name="DtlCreateID" Type="varchar" MaxLength="20" />
+          <Property Name="DtlCreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="DtlUpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="DtlUpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_supplierprodprice”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_supplierprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="Model" />
+            
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="PurPrice" Type="float" />
+          <Property Name="SupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupName" Type="varchar" MaxLength="50" />
+          <Property Name="SupItmCD" Type="varchar" MaxLength="50" />
+          <Property Name="SupItmName" Type="varchar" MaxLength="200" />
+          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="MakeIn" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+          <Property Name="CreateID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UpdateID" Type="varchar" MaxLength="20" />
+          <Property Name="UpdateDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_whinventory”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_whinventory">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="InvNum" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="InvNum" Type="double" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.v_whinventoryquery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_whinventoryquery">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="WHName" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PdtType" Type="varchar" MaxLength="30" />
+          <Property Name="PdtTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="WHID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WHName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InvNum" Type="float" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.snh.vwhinventorywarning”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vwhinventorywarning">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="InvNum" />
+            <PropertyRef Name="WN" />
+            <PropertyRef Name="WN1" />
+            <PropertyRef Name="WN2" />
+            <PropertyRef Name="WN3" />
+          </Key>
+          <Property Name="PdtID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PdtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Spec" Type="varchar" MaxLength="200" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="InvNum" Type="double" Nullable="false" />
+          <Property Name="P_N" Type="double" />
+          <Property Name="P_N1" Type="double" />
+          <Property Name="P_N2" Type="double" />
+          <Property Name="P_N3" Type="double" />
+          <Property Name="S_N" Type="double" />
+          <Property Name="S_N1" Type="double" />
+          <Property Name="S_N2" Type="double" />
+          <Property Name="S_N3" Type="double" />
+          <Property Name="F_N" Type="double" />
+          <Property Name="F_N1" Type="double" />
+          <Property Name="F_N2" Type="double" />
+          <Property Name="F_N3" Type="double" />
+          <Property Name="WN" Type="double" Nullable="false" />
+          <Property Name="WN1" Type="double" Nullable="false" />
+          <Property Name="WN2" Type="double" Nullable="false" />
+          <Property Name="WN3" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SmcModelStoreContainer">
+          <EntitySet Name="inwarrecord" EntityType="Self.inwarrecord" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="inwarrecorddtl" EntityType="Self.inwarrecorddtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mcurrency" EntityType="Self.mcurrency" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mcustomer" EntityType="Self.mcustomer" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mcustomerprodprice" EntityType="Self.mcustomerprodprice" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mproduct" EntityType="Self.mproduct" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mproductatt" EntityType="Self.mproductatt" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mproducttype" EntityType="Self.mproducttype" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="msupplier" EntityType="Self.msupplier" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="msupplierprodprice" EntityType="Self.msupplierprodprice" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="mwarehouse" EntityType="Self.mwarehouse" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="outwarrecord" EntityType="Self.outwarrecord" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="outwarrecorddtl" EntityType="Self.outwarrecorddtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="sfunction" EntityType="Self.sfunction" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="srole" EntityType="Self.srole" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="srolefunction" EntityType="Self.srolefunction" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="suser" EntityType="Self.suser" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="suserrole" EntityType="Self.suserrole" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tpurorder" EntityType="Self.tpurorder" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tpurorderatt" EntityType="Self.tpurorderatt" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tpurorderdtl" EntityType="Self.tpurorderdtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleforcast" EntityType="Self.tsaleforcast" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleforcastatt" EntityType="Self.tsaleforcastatt" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleforcastdtl" EntityType="Self.tsaleforcastdtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleorder" EntityType="Self.tsaleorder" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleorderatt" EntityType="Self.tsaleorderatt" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="tsaleorderdtl" EntityType="Self.tsaleorderdtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="twhcheckrecorddtl" EntityType="Self.twhcheckrecorddtl" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="twhcheckrecords" EntityType="Self.twhcheckrecords" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="twhinventory" EntityType="Self.twhinventory" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="twhstockrecords" EntityType="Self.twhstockrecords" Schema="snh" store:Type="Tables" />
+          <EntitySet Name="twhinventory_his" EntityType="Self.twhinventory_his" store:Type="Tables" store:Schema="snh">
+            <DefiningQuery>SELECT
+`twhinventory_his`.`WHID`, 
+`twhinventory_his`.`AreaID`, 
+`twhinventory_his`.`PosiID`, 
+`twhinventory_his`.`PdtID`, 
+`twhinventory_his`.`InvNum`, 
+`twhinventory_his`.`Remark`, 
+`twhinventory_his`.`UpdateID`, 
+`twhinventory_his`.`UpdateDate`, 
+`twhinventory_his`.`DATE`
+FROM `twhinventory_his` AS `twhinventory_his`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_customerprodprice" EntityType="Self.v_customerprodprice" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_customerprodprice`.`PdtID`, 
+`v_customerprodprice`.`PdtName`, 
+`v_customerprodprice`.`PdtType`, 
+`v_customerprodprice`.`Spec`, 
+`v_customerprodprice`.`Unit`, 
+`v_customerprodprice`.`PurPrice`, 
+`v_customerprodprice`.`CusID`, 
+`v_customerprodprice`.`CusName`, 
+`v_customerprodprice`.`CusItmCD`, 
+`v_customerprodprice`.`CusItmName`, 
+`v_customerprodprice`.`Model`, 
+`v_customerprodprice`.`SalePrice`, 
+`v_customerprodprice`.`MakeIn`, 
+`v_customerprodprice`.`CreateID`, 
+`v_customerprodprice`.`CreateDate`, 
+`v_customerprodprice`.`UpdateID`, 
+`v_customerprodprice`.`UpdateDate`
+FROM `v_customerprodprice` AS `v_customerprodprice`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_purorder" EntityType="Self.v_purorder" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_purorder`.`PurOrderNO`, 
+`v_purorder`.`SupID`, 
+`v_purorder`.`SupName`, 
+`v_purorder`.`CreDate`, 
+`v_purorder`.`TotalNum`, 
+`v_purorder`.`TotalAmount`, 
+`v_purorder`.`Remark`, 
+`v_purorder`.`State`, 
+`v_purorder`.`UpdateID`, 
+`v_purorder`.`UpdateDate`, 
+`v_purorder`.`AppointDate`
+FROM `v_purorder` AS `v_purorder`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_purorderdtl" EntityType="Self.v_purorderdtl" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_purorderdtl`.`PurOrderNO`, 
+`v_purorderdtl`.`SeqNo`, 
+`v_purorderdtl`.`SupID`, 
+`v_purorderdtl`.`SupName`, 
+`v_purorderdtl`.`PdtID`, 
+`v_purorderdtl`.`PdtName`, 
+`v_purorderdtl`.`Spec`, 
+`v_purorderdtl`.`MakeIn`, 
+`v_purorderdtl`.`Unit`, 
+`v_purorderdtl`.`OrderNum`, 
+`v_purorderdtl`.`DelNum`, 
+`v_purorderdtl`.`LftNum`, 
+`v_purorderdtl`.`UnitPrice`, 
+`v_purorderdtl`.`TotalAmount`, 
+`v_purorderdtl`.`DelDate`, 
+`v_purorderdtl`.`State`, 
+`v_purorderdtl`.`Remark`, 
+`v_purorderdtl`.`UpdateID`, 
+`v_purorderdtl`.`UpdateDate`
+FROM `v_purorderdtl` AS `v_purorderdtl`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_saleforcast" EntityType="Self.v_saleforcast" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_saleforcast`.`SaleFocaNO`, 
+`v_saleforcast`.`CusID`, 
+`v_saleforcast`.`CusName`, 
+`v_saleforcast`.`CreDate`, 
+`v_saleforcast`.`State`, 
+`v_saleforcast`.`CreateID`, 
+`v_saleforcast`.`UserName`, 
+`v_saleforcast`.`CreateDate`, 
+`v_saleforcast`.`UpdateID`, 
+`v_saleforcast`.`UpdateDate`
+FROM `v_saleforcast` AS `v_saleforcast`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_saleforcastdtl" EntityType="Self.v_saleforcastdtl" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_saleforcastdtl`.`SaleFocaNO`, 
+`v_saleforcastdtl`.`SeqNo`, 
+`v_saleforcastdtl`.`CusID`, 
+`v_saleforcastdtl`.`CusName`, 
+`v_saleforcastdtl`.`PdtID`, 
+`v_saleforcastdtl`.`PdtName`, 
+`v_saleforcastdtl`.`Spec`, 
+`v_saleforcastdtl`.`Model`, 
+`v_saleforcastdtl`.`MgrInfo`, 
+`v_saleforcastdtl`.`CusItmCD`, 
+`v_saleforcastdtl`.`CusItmName`, 
+`v_saleforcastdtl`.`SalePrice`, 
+`v_saleforcastdtl`.`Unit`, 
+`v_saleforcastdtl`.`FocaMonth`, 
+`v_saleforcastdtl`.`FocaNum`, 
+`v_saleforcastdtl`.`LftNum`, 
+`v_saleforcastdtl`.`State`, 
+`v_saleforcastdtl`.`DtlState`, 
+`v_saleforcastdtl`.`Remark1`, 
+`v_saleforcastdtl`.`Remark2`, 
+`v_saleforcastdtl`.`CreDate`, 
+`v_saleforcastdtl`.`CreateDate`, 
+`v_saleforcastdtl`.`DtlCreateID`, 
+`v_saleforcastdtl`.`DtlCreateDate`, 
+`v_saleforcastdtl`.`DtlUpdateID`, 
+`v_saleforcastdtl`.`DtlUpdateDate`
+FROM `v_saleforcastdtl` AS `v_saleforcastdtl`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_saleorder" EntityType="Self.v_saleorder" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_saleorder`.`SaleOrderNO`, 
+`v_saleorder`.`CusID`, 
+`v_saleorder`.`CusName`, 
+`v_saleorder`.`CreDate`, 
+`v_saleorder`.`TotalAmount`, 
+`v_saleorder`.`TotalNumber`, 
+`v_saleorder`.`Remark`, 
+`v_saleorder`.`State`, 
+`v_saleorder`.`AppointDate`, 
+`v_saleorder`.`CreateID`, 
+`v_saleorder`.`UserName`, 
+`v_saleorder`.`CreateDate`, 
+`v_saleorder`.`UpdateID`, 
+`v_saleorder`.`UpdateDate`, 
+`v_saleorder`.`SaleFocaNO`
+FROM `v_saleorder` AS `v_saleorder`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_saleorderdtl" EntityType="Self.v_saleorderdtl" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_saleorderdtl`.`SaleOrderNO`, 
+`v_saleorderdtl`.`SeqNo`, 
+`v_saleorderdtl`.`SaleFocaNO`, 
+`v_saleorderdtl`.`TotalAmount`, 
+`v_saleorderdtl`.`CusID`, 
+`v_saleorderdtl`.`CusName`, 
+`v_saleorderdtl`.`PdtID`, 
+`v_saleorderdtl`.`PdtName`, 
+`v_saleorderdtl`.`Spec`, 
+`v_saleorderdtl`.`Model`, 
+`v_saleorderdtl`.`MgrInfo`, 
+`v_saleorderdtl`.`CusItmCD`, 
+`v_saleorderdtl`.`CusItmName`, 
+`v_saleorderdtl`.`SalePrice`, 
+`v_saleorderdtl`.`Unit`, 
+`v_saleorderdtl`.`FocaMonth`, 
+`v_saleorderdtl`.`DelDate`, 
+`v_saleorderdtl`.`FocaNum`, 
+`v_saleorderdtl`.`LftNum`, 
+`v_saleorderdtl`.`OrderNum`, 
+`v_saleorderdtl`.`DelNum`, 
+`v_saleorderdtl`.`OrderPrice`, 
+`v_saleorderdtl`.`State`, 
+`v_saleorderdtl`.`DtlState`, 
+`v_saleorderdtl`.`Remark`, 
+`v_saleorderdtl`.`Remark1`, 
+`v_saleorderdtl`.`Remark2`, 
+`v_saleorderdtl`.`CreDate`, 
+`v_saleorderdtl`.`CreateDate`, 
+`v_saleorderdtl`.`DtlCreateID`, 
+`v_saleorderdtl`.`DtlCreateDate`, 
+`v_saleorderdtl`.`DtlUpdateID`, 
+`v_saleorderdtl`.`DtlUpdateDate`
+FROM `v_saleorderdtl` AS `v_saleorderdtl`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_supplierprodprice" EntityType="Self.v_supplierprodprice" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_supplierprodprice`.`PdtID`, 
+`v_supplierprodprice`.`PdtName`, 
+`v_supplierprodprice`.`PdtType`, 
+`v_supplierprodprice`.`Spec`, 
+`v_supplierprodprice`.`Unit`, 
+`v_supplierprodprice`.`PurPrice`, 
+`v_supplierprodprice`.`SupID`, 
+`v_supplierprodprice`.`SupName`, 
+`v_supplierprodprice`.`SupItmCD`, 
+`v_supplierprodprice`.`SupItmName`, 
+`v_supplierprodprice`.`Model`, 
+`v_supplierprodprice`.`SalePrice`, 
+`v_supplierprodprice`.`MakeIn`, 
+`v_supplierprodprice`.`Remark`, 
+`v_supplierprodprice`.`CreateID`, 
+`v_supplierprodprice`.`CreateDate`, 
+`v_supplierprodprice`.`UpdateID`, 
+`v_supplierprodprice`.`UpdateDate`
+FROM `v_supplierprodprice` AS `v_supplierprodprice`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_whinventory" EntityType="Self.v_whinventory" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_whinventory`.`PdtID`, 
+`v_whinventory`.`PdtName`, 
+`v_whinventory`.`PdtType`, 
+`v_whinventory`.`Spec`, 
+`v_whinventory`.`Unit`, 
+`v_whinventory`.`InvNum`
+FROM `v_whinventory` AS `v_whinventory`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_whinventoryquery" EntityType="Self.v_whinventoryquery" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`v_whinventoryquery`.`PdtID`, 
+`v_whinventoryquery`.`PdtName`, 
+`v_whinventoryquery`.`PdtType`, 
+`v_whinventoryquery`.`PdtTypeName`, 
+`v_whinventoryquery`.`Spec`, 
+`v_whinventoryquery`.`Unit`, 
+`v_whinventoryquery`.`WHID`, 
+`v_whinventoryquery`.`WHName`, 
+`v_whinventoryquery`.`InvNum`
+FROM `v_whinventoryquery` AS `v_whinventoryquery`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwhinventorywarning" EntityType="Self.vwhinventorywarning" store:Type="Views" store:Schema="snh">
+            <DefiningQuery>SELECT
+`vwhinventorywarning`.`PdtID`, 
+`vwhinventorywarning`.`PdtName`, 
+`vwhinventorywarning`.`Spec`, 
+`vwhinventorywarning`.`Unit`, 
+`vwhinventorywarning`.`InvNum`, 
+`vwhinventorywarning`.`P_N`, 
+`vwhinventorywarning`.`P_N1`, 
+`vwhinventorywarning`.`P_N2`, 
+`vwhinventorywarning`.`P_N3`, 
+`vwhinventorywarning`.`S_N`, 
+`vwhinventorywarning`.`S_N1`, 
+`vwhinventorywarning`.`S_N2`, 
+`vwhinventorywarning`.`S_N3`, 
+`vwhinventorywarning`.`F_N`, 
+`vwhinventorywarning`.`F_N1`, 
+`vwhinventorywarning`.`F_N2`, 
+`vwhinventorywarning`.`F_N3`, 
+`vwhinventorywarning`.`WN`, 
+`vwhinventorywarning`.`WN1`, 
+`vwhinventorywarning`.`WN2`, 
+`vwhinventorywarning`.`WN3`
+FROM `vwhinventorywarning` AS `vwhinventorywarning`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="erpsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="erpsEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="tpurorderdtl" EntityType="erpsModel.tpurorderdtl" />
+          <EntitySet Name="inwarrecorddtl" EntityType="erpsModel.inwarrecorddtl" />
+          <EntitySet Name="mcustomer" EntityType="erpsModel.mcustomer" />
+          <EntitySet Name="mcustomerprodprice" EntityType="erpsModel.mcustomerprodprice" />
+          <EntitySet Name="mproducttype" EntityType="erpsModel.mproducttype" />
+          <EntitySet Name="mwarehouse" EntityType="erpsModel.mwarehouse" />
+          <EntitySet Name="sfunction" EntityType="erpsModel.sfunction" />
+          <EntitySet Name="srole" EntityType="erpsModel.srole" />
+          <EntitySet Name="srolefunction" EntityType="erpsModel.srolefunction" />
+          <EntitySet Name="suserrole" EntityType="erpsModel.suserrole" />
+          <EntitySet Name="tpurorderatt" EntityType="erpsModel.tpurorderatt" />
+          <EntitySet Name="tsaleforcast" EntityType="erpsModel.tsaleforcast" />
+          <EntitySet Name="tsaleforcastatt" EntityType="erpsModel.tsaleforcastatt" />
+          <EntitySet Name="tsaleforcastdtl" EntityType="erpsModel.tsaleforcastdtl" />
+          <EntitySet Name="tsaleorder" EntityType="erpsModel.tsaleorder" />
+          <EntitySet Name="tsaleorderatt" EntityType="erpsModel.tsaleorderatt" />
+          <EntitySet Name="twhcheckrecorddtl" EntityType="erpsModel.twhcheckrecorddtl" />
+          <EntitySet Name="twhcheckrecords" EntityType="erpsModel.twhcheckrecords" />
+          <EntitySet Name="twhinventory" EntityType="erpsModel.twhinventory" />
+          <EntitySet Name="v_customerprodprice" EntityType="erpsModel.v_customerprodprice" />
+          <EntitySet Name="v_purorderdtl" EntityType="erpsModel.v_purorderdtl" />
+          <EntitySet Name="v_saleforcast" EntityType="erpsModel.v_saleforcast" />
+          <EntitySet Name="v_saleforcastdtl" EntityType="erpsModel.v_saleforcastdtl" />
+          <EntitySet Name="v_saleorder" EntityType="erpsModel.v_saleorder" />
+          <EntitySet Name="v_whinventory" EntityType="erpsModel.v_whinventory" />
+          <EntitySet Name="v_whinventoryquery" EntityType="erpsModel.v_whinventoryquery" />
+          <EntitySet Name="vwhinventorywarning" EntityType="erpsModel.vwhinventorywarning" />
+          <EntitySet Name="inwarrecord" EntityType="erpsModel.inwarrecord" />
+          <EntitySet Name="outwarrecorddtl" EntityType="erpsModel.outwarrecorddtl" />
+          <EntitySet Name="outwarrecord" EntityType="erpsModel.outwarrecord" />
+          <EntitySet Name="tpurorder" EntityType="erpsModel.tpurorder" />
+          <EntitySet Name="v_purorder" EntityType="erpsModel.v_purorder" />
+          <EntitySet Name="tsaleorderdtl" EntityType="erpsModel.tsaleorderdtl" />
+          <EntitySet Name="v_saleorderdtl" EntityType="erpsModel.v_saleorderdtl" />
+          <EntitySet Name="msupplier" EntityType="erpsModel.msupplier" />
+          <EntitySet Name="suser" EntityType="erpsModel.suser" />
+          <EntitySet Name="msupplierprodprice" EntityType="erpsModel.msupplierprodprice" />
+          <EntitySet Name="v_supplierprodprice" EntityType="erpsModel.v_supplierprodprice" />
+          <EntitySet Name="twhstockrecords" EntityType="erpsModel.twhstockrecords" />
+          <EntitySet Name="mcurrency" EntityType="erpsModel.mcurrency" />
+          <EntitySet Name="mproduct" EntityType="erpsModel.mproduct" />
+          <EntitySet Name="mproductatt" EntityType="erpsModel.mproductatt" />
+          <EntitySet Name="twhinventory_his" EntityType="erpsModel.twhinventory_his" />
+        </EntityContainer>
+        <EntityType Name="tpurorderdtl">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="PurOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Single" />
+          <Property Name="DelNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="UnitPrice" Type="Single" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="DelDate" Type="DateTime" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inwarrecorddtl">
+          <Key>
+            <PropertyRef Name="InWarNo" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="InWarNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PurPrice" Type="Single" />
+          <Property Name="Num" Type="Single" />
+        </EntityType>
+        <EntityType Name="mcustomer">
+          <Key>
+            <PropertyRef Name="CusID" />
+          </Key>
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Salesman" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DelRemark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BusLic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BankName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mcustomerprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="mproducttype">
+          <Key>
+            <PropertyRef Name="PdtTypeID" />
+          </Key>
+          <Property Name="PdtTypeID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mwarehouse">
+          <Key>
+            <PropertyRef Name="WHID" />
+          </Key>
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WHName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contacts" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WHType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sfunction">
+          <Key>
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="FuncID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FuncName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FuncType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="srole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="srolefunction">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="RoleID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FuncID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suserrole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tpurorderatt">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="PurOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tsaleforcast">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tsaleforcastatt">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tsaleforcastdtl">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FocaMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FocaNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tsaleorder">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="TotalNumber" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="AppointDate" Type="DateTime" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tsaleorderatt">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="twhcheckrecorddtl">
+          <Key>
+            <PropertyRef Name="ChkNO" />
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="ChkNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Single" Nullable="false" />
+          <Property Name="RealNum" Type="Single" Nullable="false" />
+          <Property Name="DifNum" Type="Single" Nullable="false" />
+          <Property Name="AdjStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="twhcheckrecords">
+          <Key>
+            <PropertyRef Name="ChkNO" />
+          </Key>
+          <Property Name="ChkNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChkDate" Type="DateTime" Nullable="false" />
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PosiID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ChkStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="twhinventory">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PosiID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_customerprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PurPrice" Type="Single" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_purorderdtl">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+            <PropertyRef Name="SeqNo" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="SupName" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="DelDate" />
+            <PropertyRef Name="UpdateDate" />
+          </Key>
+          <Property Name="PurOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Single" />
+          <Property Name="DelNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="UnitPrice" Type="Single" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="DelDate" Type="DateTime" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_saleforcast">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_saleforcastdtl">
+          <Key>
+            <PropertyRef Name="SaleFocaNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleFocaNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MgrInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FocaMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FocaNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DtlState" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="DtlCreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DtlCreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="DtlUpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DtlUpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_saleorder">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="TotalNumber" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="AppointDate" Type="DateTime" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+          <Property Name="SaleFocaNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_whinventory">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="InvNum" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_whinventoryquery">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="WHName" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WHName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Single" />
+        </EntityType>
+        <EntityType Name="vwhinventorywarning">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="PdtName" />
+            <PropertyRef Name="InvNum" />
+            <PropertyRef Name="WN" />
+            <PropertyRef Name="WN1" />
+            <PropertyRef Name="WN2" />
+            <PropertyRef Name="WN3" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Double" Nullable="false" />
+          <Property Name="P_N" Type="Double" />
+          <Property Name="P_N1" Type="Double" />
+          <Property Name="P_N2" Type="Double" />
+          <Property Name="P_N3" Type="Double" />
+          <Property Name="S_N" Type="Double" />
+          <Property Name="S_N1" Type="Double" />
+          <Property Name="S_N2" Type="Double" />
+          <Property Name="S_N3" Type="Double" />
+          <Property Name="F_N" Type="Double" />
+          <Property Name="F_N1" Type="Double" />
+          <Property Name="F_N2" Type="Double" />
+          <Property Name="F_N3" Type="Double" />
+          <Property Name="WN" Type="Double" Nullable="false" />
+          <Property Name="WN1" Type="Double" Nullable="false" />
+          <Property Name="WN2" Type="Double" Nullable="false" />
+          <Property Name="WN3" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inwarrecord">
+          <Key>
+            <PropertyRef Name="InWarNo" />
+          </Key>
+          <Property Name="InWarNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurOrderNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InWarDate" Type="DateTime" />
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WHName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="outwarrecorddtl">
+          <Key>
+            <PropertyRef Name="OutWarNo" />
+            <PropertyRef Name="PdtId" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="OutWarNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="PdtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MgrInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Single" />
+          <Property Name="Num" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="outwarrecord">
+          <Key>
+            <PropertyRef Name="OutWarNo" />
+          </Key>
+          <Property Name="OutWarNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaleOrderNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WHName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tpurorder">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+          </Key>
+          <Property Name="PurOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="TotalNum" Type="Single" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+          <Property Name="AppointDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_purorder">
+          <Key>
+            <PropertyRef Name="PurOrderNO" />
+          </Key>
+          <Property Name="PurOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="TotalNum" Type="Single" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+          <Property Name="AppointDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tsaleorderdtl">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="SaleFocaNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FocaMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Single" />
+          <Property Name="DelNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="OrderPrice" Type="Single" />
+          <Property Name="DelDate" Type="DateTime" Nullable="false" />
+          <Property Name="Remark1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_saleorderdtl">
+          <Key>
+            <PropertyRef Name="SaleOrderNO" />
+            <PropertyRef Name="SeqNo" />
+          </Key>
+          <Property Name="SaleOrderNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" Nullable="false" />
+          <Property Name="SaleFocaNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalAmount" Type="Single" />
+          <Property Name="CusID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MgrInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CusItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FocaMonth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DelDate" Type="DateTime" Nullable="false" />
+          <Property Name="FocaNum" Type="Single" />
+          <Property Name="LftNum" Type="Single" />
+          <Property Name="OrderNum" Type="Single" />
+          <Property Name="DelNum" Type="Single" />
+          <Property Name="OrderPrice" Type="Single" />
+          <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DtlState" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Remark1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreDate" Type="DateTime" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="DtlCreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DtlCreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="DtlUpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DtlUpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="msupplier">
+          <Key>
+            <PropertyRef Name="SupID" />
+          </Key>
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BusLic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BankName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccNo3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+          <Property Name="StaffId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="msupplierprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="v_supplierprodprice">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="SupID" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PurPrice" Type="Single" />
+          <Property Name="SupID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupItmCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupItmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Single" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="twhstockrecords">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="CreateDate" />
+          </Key>
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PosiID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num" Type="Single" />
+          <Property Name="RefWHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RefAreaID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RefPosiID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OpeType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PurOrderNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaleOrderNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefSeqNo" Type="Int32" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="mcurrency">
+          <Key>
+            <PropertyRef Name="CurrencyID" />
+          </Key>
+          <Property Name="CurrencyID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mproduct">
+          <Key>
+            <PropertyRef Name="PdtID" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PdtType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PurPrice" Type="Single" />
+          <Property Name="SalPrice" Type="Single" />
+          <Property Name="MakeIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MgrInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IO_Type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PdtBarcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Brand" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PdtModel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CostPrice" Type="Single" />
+          <Property Name="CurrencyID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mproductatt">
+          <Key>
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="AttFileName" />
+          </Key>
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttFileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="twhinventory_his">
+          <Key>
+            <PropertyRef Name="WHID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="PosiID" />
+            <PropertyRef Name="PdtID" />
+            <PropertyRef Name="UpdateDate" />
+          </Key>
+          <Property Name="WHID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PosiID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PdtID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="InvNum" Type="Single" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmcModelStoreContainer" CdmEntityContainer="erpsEntities" >
+          <EntitySetMapping Name="tpurorderdtl">
+            <EntityTypeMapping TypeName="erpsModel.tpurorderdtl">
+              <MappingFragment StoreEntitySet="tpurorderdtl">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DelDate" ColumnName="DelDate" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="DelNum" ColumnName="DelNum" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inwarrecorddtl">
+            <EntityTypeMapping TypeName="erpsModel.inwarrecorddtl">
+              <MappingFragment StoreEntitySet="inwarrecorddtl">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="InWarNo" ColumnName="InWarNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mcustomer">
+            <EntityTypeMapping TypeName="erpsModel.mcustomer">
+              <MappingFragment StoreEntitySet="mcustomer">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="BankAccNo3" ColumnName="BankAccNo3" />
+                <ScalarProperty Name="BankName3" ColumnName="BankName3" />
+                <ScalarProperty Name="BankAccNo2" ColumnName="BankAccNo2" />
+                <ScalarProperty Name="BankName2" ColumnName="BankName2" />
+                <ScalarProperty Name="BankAccNo1" ColumnName="BankAccNo1" />
+                <ScalarProperty Name="BankName1" ColumnName="BankName1" />
+                <ScalarProperty Name="BusLic" ColumnName="BusLic" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DelRemark" ColumnName="DelRemark" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mcustomerprodprice">
+            <EntityTypeMapping TypeName="erpsModel.mcustomerprodprice">
+              <MappingFragment StoreEntitySet="mcustomerprodprice">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="CusItmName" ColumnName="CusItmName" />
+                <ScalarProperty Name="CusItmCD" ColumnName="CusItmCD" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mproducttype">
+            <EntityTypeMapping TypeName="erpsModel.mproducttype">
+              <MappingFragment StoreEntitySet="mproducttype">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtTypeName" ColumnName="PdtTypeName" />
+                <ScalarProperty Name="PdtTypeID" ColumnName="PdtTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mwarehouse">
+            <EntityTypeMapping TypeName="erpsModel.mwarehouse">
+              <MappingFragment StoreEntitySet="mwarehouse">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="WHType" ColumnName="WHType" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="WHName" ColumnName="WHName" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sfunction">
+            <EntityTypeMapping TypeName="erpsModel.sfunction">
+              <MappingFragment StoreEntitySet="sfunction">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="FuncType" ColumnName="FuncType" />
+                <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+                <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="srole">
+            <EntityTypeMapping TypeName="erpsModel.srole">
+              <MappingFragment StoreEntitySet="srole">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="srolefunction">
+            <EntityTypeMapping TypeName="erpsModel.srolefunction">
+              <MappingFragment StoreEntitySet="srolefunction">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suserrole">
+            <EntityTypeMapping TypeName="erpsModel.suserrole">
+              <MappingFragment StoreEntitySet="suserrole">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tpurorderatt">
+            <EntityTypeMapping TypeName="erpsModel.tpurorderatt">
+              <MappingFragment StoreEntitySet="tpurorderatt">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AttFileName" ColumnName="AttFileName" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleforcast">
+            <EntityTypeMapping TypeName="erpsModel.tsaleforcast">
+              <MappingFragment StoreEntitySet="tsaleforcast">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleforcastatt">
+            <EntityTypeMapping TypeName="erpsModel.tsaleforcastatt">
+              <MappingFragment StoreEntitySet="tsaleforcastatt">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AttFileName" ColumnName="AttFileName" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleforcastdtl">
+            <EntityTypeMapping TypeName="erpsModel.tsaleforcastdtl">
+              <MappingFragment StoreEntitySet="tsaleforcastdtl">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="FocaNum" ColumnName="FocaNum" />
+                <ScalarProperty Name="FocaMonth" ColumnName="FocaMonth" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleorder">
+            <EntityTypeMapping TypeName="erpsModel.tsaleorder">
+              <MappingFragment StoreEntitySet="tsaleorder">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TotalNumber" ColumnName="TotalNumber" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleorderatt">
+            <EntityTypeMapping TypeName="erpsModel.tsaleorderatt">
+              <MappingFragment StoreEntitySet="tsaleorderatt">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AttFileName" ColumnName="AttFileName" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="twhcheckrecorddtl">
+            <EntityTypeMapping TypeName="erpsModel.twhcheckrecorddtl">
+              <MappingFragment StoreEntitySet="twhcheckrecorddtl">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AdjStatus" ColumnName="AdjStatus" />
+                <ScalarProperty Name="DifNum" ColumnName="DifNum" />
+                <ScalarProperty Name="RealNum" ColumnName="RealNum" />
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="ChkNO" ColumnName="ChkNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="twhcheckrecords">
+            <EntityTypeMapping TypeName="erpsModel.twhcheckrecords">
+              <MappingFragment StoreEntitySet="twhcheckrecords">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ChkStatus" ColumnName="ChkStatus" />
+                <ScalarProperty Name="PosiID" ColumnName="PosiID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+                <ScalarProperty Name="ChkDate" ColumnName="ChkDate" />
+                <ScalarProperty Name="ChkNO" ColumnName="ChkNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="twhinventory">
+            <EntityTypeMapping TypeName="erpsModel.twhinventory">
+              <MappingFragment StoreEntitySet="twhinventory">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="PosiID" ColumnName="PosiID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_customerprodprice">
+            <EntityTypeMapping TypeName="erpsModel.v_customerprodprice">
+              <MappingFragment StoreEntitySet="v_customerprodprice">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="CusItmName" ColumnName="CusItmName" />
+                <ScalarProperty Name="CusItmCD" ColumnName="CusItmCD" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_purorderdtl">
+            <EntityTypeMapping TypeName="erpsModel.v_purorderdtl">
+              <MappingFragment StoreEntitySet="v_purorderdtl">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DelDate" ColumnName="DelDate" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="DelNum" ColumnName="DelNum" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_saleforcast">
+            <EntityTypeMapping TypeName="erpsModel.v_saleforcast">
+              <MappingFragment StoreEntitySet="v_saleforcast">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_saleforcastdtl">
+            <EntityTypeMapping TypeName="erpsModel.v_saleforcastdtl">
+              <MappingFragment StoreEntitySet="v_saleforcastdtl">
+                <ScalarProperty Name="DtlUpdateDate" ColumnName="DtlUpdateDate" />
+                <ScalarProperty Name="DtlUpdateID" ColumnName="DtlUpdateID" />
+                <ScalarProperty Name="DtlCreateDate" ColumnName="DtlCreateDate" />
+                <ScalarProperty Name="DtlCreateID" ColumnName="DtlCreateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+                <ScalarProperty Name="DtlState" ColumnName="DtlState" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="FocaNum" ColumnName="FocaNum" />
+                <ScalarProperty Name="FocaMonth" ColumnName="FocaMonth" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="CusItmName" ColumnName="CusItmName" />
+                <ScalarProperty Name="CusItmCD" ColumnName="CusItmCD" />
+                <ScalarProperty Name="MgrInfo" ColumnName="MgrInfo" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_saleorder">
+            <EntityTypeMapping TypeName="erpsModel.v_saleorder">
+              <MappingFragment StoreEntitySet="v_saleorder">
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TotalNumber" ColumnName="TotalNumber" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_whinventory">
+            <EntityTypeMapping TypeName="erpsModel.v_whinventory">
+              <MappingFragment StoreEntitySet="v_whinventory">
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_whinventoryquery">
+            <EntityTypeMapping TypeName="erpsModel.v_whinventoryquery">
+              <MappingFragment StoreEntitySet="v_whinventoryquery">
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="WHName" ColumnName="WHName" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtTypeName" ColumnName="PdtTypeName" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwhinventorywarning">
+            <EntityTypeMapping TypeName="erpsModel.vwhinventorywarning">
+              <MappingFragment StoreEntitySet="vwhinventorywarning">
+                <ScalarProperty Name="WN3" ColumnName="WN3" />
+                <ScalarProperty Name="WN2" ColumnName="WN2" />
+                <ScalarProperty Name="WN1" ColumnName="WN1" />
+                <ScalarProperty Name="WN" ColumnName="WN" />
+                <ScalarProperty Name="F_N3" ColumnName="F_N3" />
+                <ScalarProperty Name="F_N2" ColumnName="F_N2" />
+                <ScalarProperty Name="F_N1" ColumnName="F_N1" />
+                <ScalarProperty Name="F_N" ColumnName="F_N" />
+                <ScalarProperty Name="S_N3" ColumnName="S_N3" />
+                <ScalarProperty Name="S_N2" ColumnName="S_N2" />
+                <ScalarProperty Name="S_N1" ColumnName="S_N1" />
+                <ScalarProperty Name="S_N" ColumnName="S_N" />
+                <ScalarProperty Name="P_N3" ColumnName="P_N3" />
+                <ScalarProperty Name="P_N2" ColumnName="P_N2" />
+                <ScalarProperty Name="P_N1" ColumnName="P_N1" />
+                <ScalarProperty Name="P_N" ColumnName="P_N" />
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inwarrecord">
+            <EntityTypeMapping TypeName="erpsModel.inwarrecord">
+              <MappingFragment StoreEntitySet="inwarrecord">
+                <ScalarProperty Name="WHName" ColumnName="WHName" />
+                <ScalarProperty Name="UpdateName" ColumnName="UpdateName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="InWarDate" ColumnName="InWarDate" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+                <ScalarProperty Name="InWarNo" ColumnName="InWarNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="outwarrecorddtl">
+            <EntityTypeMapping TypeName="erpsModel.outwarrecorddtl">
+              <MappingFragment StoreEntitySet="outwarrecorddtl">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="MgrInfo" ColumnName="MgrInfo" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="PdtId" ColumnName="PdtId" />
+                <ScalarProperty Name="OutWarNo" ColumnName="OutWarNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="outwarrecord">
+            <EntityTypeMapping TypeName="erpsModel.outwarrecord">
+              <MappingFragment StoreEntitySet="outwarrecord">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WHName" ColumnName="WHName" />
+                <ScalarProperty Name="UpdateName" ColumnName="UpdateName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+                <ScalarProperty Name="OutWarNo" ColumnName="OutWarNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tpurorder">
+            <EntityTypeMapping TypeName="erpsModel.tpurorder">
+              <MappingFragment StoreEntitySet="tpurorder">
+                <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_purorder">
+            <EntityTypeMapping TypeName="erpsModel.v_purorder">
+              <MappingFragment StoreEntitySet="v_purorder">
+                <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tsaleorderdtl">
+            <EntityTypeMapping TypeName="erpsModel.tsaleorderdtl">
+              <MappingFragment StoreEntitySet="tsaleorderdtl">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+                <ScalarProperty Name="DelDate" ColumnName="DelDate" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="DelNum" ColumnName="DelNum" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="FocaMonth" ColumnName="FocaMonth" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_saleorderdtl">
+            <EntityTypeMapping TypeName="erpsModel.v_saleorderdtl">
+              <MappingFragment StoreEntitySet="v_saleorderdtl">
+                <ScalarProperty Name="DtlUpdateDate" ColumnName="DtlUpdateDate" />
+                <ScalarProperty Name="DtlUpdateID" ColumnName="DtlUpdateID" />
+                <ScalarProperty Name="DtlCreateDate" ColumnName="DtlCreateDate" />
+                <ScalarProperty Name="DtlCreateID" ColumnName="DtlCreateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DtlState" ColumnName="DtlState" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="DelNum" ColumnName="DelNum" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="LftNum" ColumnName="LftNum" />
+                <ScalarProperty Name="FocaNum" ColumnName="FocaNum" />
+                <ScalarProperty Name="DelDate" ColumnName="DelDate" />
+                <ScalarProperty Name="FocaMonth" ColumnName="FocaMonth" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="CusItmName" ColumnName="CusItmName" />
+                <ScalarProperty Name="CusItmCD" ColumnName="CusItmCD" />
+                <ScalarProperty Name="MgrInfo" ColumnName="MgrInfo" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="SaleFocaNO" ColumnName="SaleFocaNO" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="msupplier">
+            <EntityTypeMapping TypeName="erpsModel.msupplier">
+              <MappingFragment StoreEntitySet="msupplier">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="BankAccNo3" ColumnName="BankAccNo3" />
+                <ScalarProperty Name="BankName3" ColumnName="BankName3" />
+                <ScalarProperty Name="BankAccNo2" ColumnName="BankAccNo2" />
+                <ScalarProperty Name="BankName2" ColumnName="BankName2" />
+                <ScalarProperty Name="BankAccNo1" ColumnName="BankAccNo1" />
+                <ScalarProperty Name="BankName1" ColumnName="BankName1" />
+                <ScalarProperty Name="BusLic" ColumnName="BusLic" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suser">
+            <EntityTypeMapping TypeName="erpsModel.suser">
+              <MappingFragment StoreEntitySet="suser">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="msupplierprodprice">
+            <EntityTypeMapping TypeName="erpsModel.msupplierprodprice">
+              <MappingFragment StoreEntitySet="msupplierprodprice">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SupItmName" ColumnName="SupItmName" />
+                <ScalarProperty Name="SupItmCD" ColumnName="SupItmCD" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_supplierprodprice">
+            <EntityTypeMapping TypeName="erpsModel.v_supplierprodprice">
+              <MappingFragment StoreEntitySet="v_supplierprodprice">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SupItmName" ColumnName="SupItmName" />
+                <ScalarProperty Name="SupItmCD" ColumnName="SupItmCD" />
+                <ScalarProperty Name="SupName" ColumnName="SupName" />
+                <ScalarProperty Name="SupID" ColumnName="SupID" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="twhstockrecords">
+            <EntityTypeMapping TypeName="erpsModel.twhstockrecords">
+              <MappingFragment StoreEntitySet="twhstockrecords">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="RefSeqNo" ColumnName="RefSeqNo" />
+                <ScalarProperty Name="SaleOrderNO" ColumnName="SaleOrderNO" />
+                <ScalarProperty Name="PurOrderNO" ColumnName="PurOrderNO" />
+                <ScalarProperty Name="OpeType" ColumnName="OpeType" />
+                <ScalarProperty Name="RefPosiID" ColumnName="RefPosiID" />
+                <ScalarProperty Name="RefAreaID" ColumnName="RefAreaID" />
+                <ScalarProperty Name="RefWHID" ColumnName="RefWHID" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="PosiID" ColumnName="PosiID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mcurrency">
+            <EntityTypeMapping TypeName="erpsModel.mcurrency">
+              <MappingFragment StoreEntitySet="mcurrency">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mproduct">
+            <EntityTypeMapping TypeName="erpsModel.mproduct">
+              <MappingFragment StoreEntitySet="mproduct">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="PdtModel" ColumnName="PdtModel" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="PdtBarcode" ColumnName="PdtBarcode" />
+                <ScalarProperty Name="IO_Type" ColumnName="IO_Type" />
+                <ScalarProperty Name="MgrInfo" ColumnName="MgrInfo" />
+                <ScalarProperty Name="MakeIn" ColumnName="MakeIn" />
+                <ScalarProperty Name="SalPrice" ColumnName="SalPrice" />
+                <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="PdtType" ColumnName="PdtType" />
+                <ScalarProperty Name="PdtName" ColumnName="PdtName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mproductatt">
+            <EntityTypeMapping TypeName="erpsModel.mproductatt">
+              <MappingFragment StoreEntitySet="mproductatt">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AttFileName" ColumnName="AttFileName" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="twhinventory_his">
+            <EntityTypeMapping TypeName="erpsModel.twhinventory_his">
+              <MappingFragment StoreEntitySet="twhinventory_his">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="InvNum" ColumnName="InvNum" />
+                <ScalarProperty Name="PdtID" ColumnName="PdtID" />
+                <ScalarProperty Name="PosiID" ColumnName="PosiID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="WHID" ColumnName="WHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionTool", "EncryptionTool\EncryptionTool.csproj", "{B68A3389-AFC7-44E2-B57F-D0C38FC56401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{938ED09F-C055-4EA4-A11E-B80BC7827446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_MySQL", "DAL_MySQL\DAL_MySQL.csproj", "{86A5DE86-2F62-4C95-8BC5-336B98DC3343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{C2F06784-F5CF-4DCA-AB63-0C3D5569B152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPS_API", "ERPS_API\ERPS_API.csproj", "{BE208818-9898-4D57-B5A1-11DD401FCCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{AA2C3E32-2C21-4C91-8098-8E6DD8167202}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B68A3389-AFC7-44E2-B57F-D0C38FC56401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68A3389-AFC7-44E2-B57F-D0C38FC56401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68A3389-AFC7-44E2-B57F-D0C38FC56401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68A3389-AFC7-44E2-B57F-D0C38FC56401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938ED09F-C055-4EA4-A11E-B80BC7827446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938ED09F-C055-4EA4-A11E-B80BC7827446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938ED09F-C055-4EA4-A11E-B80BC7827446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938ED09F-C055-4EA4-A11E-B80BC7827446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A5DE86-2F62-4C95-8BC5-336B98DC3343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A5DE86-2F62-4C95-8BC5-336B98DC3343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A5DE86-2F62-4C95-8BC5-336B98DC3343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A5DE86-2F62-4C95-8BC5-336B98DC3343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F06784-F5CF-4DCA-AB63-0C3D5569B152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F06784-F5CF-4DCA-AB63-0C3D5569B152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F06784-F5CF-4DCA-AB63-0C3D5569B152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F06784-F5CF-4DCA-AB63-0C3D5569B152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE208818-9898-4D57-B5A1-11DD401FCCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE208818-9898-4D57-B5A1-11DD401FCCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE208818-9898-4D57-B5A1-11DD401FCCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE208818-9898-4D57-B5A1-11DD401FCCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2C3E32-2C21-4C91-8098-8E6DD8167202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2C3E32-2C21-4C91-8098-8E6DD8167202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2C3E32-2C21-4C91-8098-8E6DD8167202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2C3E32-2C21-4C91-8098-8E6DD8167202}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9D2AA50-3BD1-4882-BAAF-22F264C06FA4}
+	EndGlobalSection	
+EndGlobal
